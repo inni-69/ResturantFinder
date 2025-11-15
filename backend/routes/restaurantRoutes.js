@@ -8,7 +8,7 @@ const Restaurant = require("../models/restaurants");
 router.get("/restaurants/near", async (req, res) => {
   const { lat, lng, radius } = req.query;
 
-  if (!lat || !lng || !radius) {
+  if (!lat ||  !radius || !lng ) {
     return res
       .status(400)
       .json({ error: "Please provide latitude, longitude, and radius" });
