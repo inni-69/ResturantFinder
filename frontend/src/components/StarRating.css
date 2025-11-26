@@ -1,0 +1,26 @@
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.star.filled {
+  color: #FFD700;
+  text-shadow: 0 1px 3px rgba(255, 215, 0, 0.5);
+}
+
+.star.half {
+  background: linear-gradient(90deg, #FFD700 50%, #CBD5E0 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.star.empty {
+  color: #CBD5E0;
+}
