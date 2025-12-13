@@ -4,21 +4,22 @@ const bodyParser = require('body-parser');
 const geolib = require('geolib');
 const cors = require("cors");
 const restaurantRoutes = require('./routes/restaurantRoutes.js');
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-
-// Connect to MongoDB (remove deprecated options)
-// NEW - Local MongoDB connection
-mongoose.connect('mongodb://localhost:27017/zomato_db')
+// Connect to MongoDB using env variable from Render
+mongoose
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Connected to MongoDB successfully');
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);
   });
+
 // Use the restaurant routes
 app.use('/api', restaurantRoutes);
 
